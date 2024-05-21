@@ -5,26 +5,29 @@ public class Main{
     public static void main(String[] args) {
 
 
+        // edit your list of subjects and their units here
+
         Subject []subjects = {
-        new Subject("CCC121", 3.0),
-        new Subject("GEC107", 3.0),
-        new Subject("GEC108", 3.0),
-        new Subject("ITE131", 3.0),
-        new Subject("MAT061", 5.0),
-        new Subject("NIH001", 3.0),
-        new Subject("PED013", 2.0)
+                new Subject("GEC109", 3.0),
+                new Subject("ITE112", 3.0),
+                new Subject("STT071", 2.0),
+                new Subject("STT071.1", 1.0),
+                new Subject("ITE125", 3.0),
+                new Subject("ITE132", 3.0),
+                new Subject("CCC151", 3.0),
+                new Subject("PED014", 2.0)
         };
 
         System.out.println("Input your grades for your subjects(Leave blank if you have no grade for that subject yet)");
-        for(int i = 0; i < subjects.length; i++){
+        for (Subject subject : subjects) {
 
             Scanner input = new Scanner(System.in);
 
-            System.out.print(subjects[i].getName() +": ");
-            try{
-                subjects[i].setGrade(Double.parseDouble(input.nextLine()));
-            }catch(NumberFormatException NE){
-                subjects[i].setGrade(null);
+            System.out.print(subject.getName() + ": ");
+            try {
+                subject.setGrade(Double.parseDouble(input.nextLine()));
+            } catch (NumberFormatException NE) {
+                subject.setGrade(null);
             }
         }
 

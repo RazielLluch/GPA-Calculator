@@ -1,6 +1,6 @@
 public class Subject {
-    private String name;
-    private double units;
+    private final String name;
+    private final double units;
     private Double grade;
     private double weighted_grade;
 

@@ -1,35 +1,38 @@
 import java.util.Scanner;
 
-public class Main{
+public class GpaCalculatorMain{
 
     public static void main(String[] args) {
 
 
         Subject []subjects = {
-        new Subject("CCC121", 3.0),
-        new Subject("GEC107", 3.0),
-        new Subject("GEC108", 3.0),
-        new Subject("ITE131", 3.0),
-        new Subject("MAT061", 5.0),
-        new Subject("NIH001", 3.0),
-        new Subject("PED013", 2.0)
+        new Subject("CCC181", 3.0, 2.0),
+        new Subject("CSC130", 3.0, 1.75),
+        new Subject("CSC142", 3.0, 1.5),
+        new Subject("CSC155", 3.0),
+        new Subject("CSC171", 3.0),
+        new Subject("CSC181", 4.0)
         };
 
         System.out.println("Input your grades for your subjects(Leave blank if you have no grade for that subject yet)");
-        for(int i = 0; i < subjects.length; i++){
+        for (Subject subject : subjects) {
+
+            if (subject.getGrade() != null) continue;
 
             Scanner input = new Scanner(System.in);
 
-            System.out.print(subjects[i].getName() +": ");
-            try{
-                subjects[i].setGrade(Double.parseDouble(input.nextLine()));
-            }catch(NumberFormatException NE){
-                subjects[i].setGrade(null);
+            System.out.print(subject.getName() + ": ");
+            try {
+                subject.setGrade(Double.parseDouble(input.nextLine()));
+            } catch (NumberFormatException NE) {
+                subject.setGrade(null);
             }
         }
 
+        double cgpa = 1.62941;
         double gpa = getGPA(subjects);
         System.out.println("Your GPA is: " +gpa);
+        System.out.println("Youre cGPA is: " +cgpa);
     }
 
     /**

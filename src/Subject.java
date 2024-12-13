@@ -1,6 +1,6 @@
 public class Subject {
-    private String name;
-    private double units;
+    private final String name;
+    private final double units;
     private Double grade;
     private double weighted_grade;
 
@@ -12,6 +12,12 @@ public class Subject {
     Subject(String name, double units){
         this.name = name;
         this.units = units;
+    }
+
+    Subject(String name, double units, double grade){
+        this.name = name;
+        this.units = units;
+        this.grade = grade;
     }
 
     /**

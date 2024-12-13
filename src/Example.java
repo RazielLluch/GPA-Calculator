@@ -6,8 +6,6 @@ public class Example {
 
         Student razeStudent = new Student("Raze", 1.62941);
 
-
-
         razeStudent.setSubjects(
                 new Subject[]{
                     new Subject("CCC181", 3.0, 2.0),
@@ -19,23 +17,8 @@ public class Example {
                 }
         );
 
-        System.out.println("Input your grades for your subjects(Leave blank if you have no grade for that subject yet)");
-        for (Subject subject : razeStudent.getSubjects()) {
+        razeStudent.inputGrades();
 
-            if (subject.getGrade() != null) continue;
-
-            Scanner input = new Scanner(System.in);
-
-            System.out.print(subject.getName() + ": ");
-            try {
-                subject.setGrade(Double.parseDouble(input.nextLine()));
-            } catch (NumberFormatException NE) {
-                subject.setGrade(null);
-            }
-        }
-
-
-        System.out.println("Your GPA is: " +razeStudent.getGPA());
-        System.out.println("Your cGPA is: " +razeStudent.getNewCGPA());
+        razeStudent.printDetails();
     }
 }
